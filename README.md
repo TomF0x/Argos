@@ -1,4 +1,4 @@
-# Project Argos
+# Projet Argos
 
 ## Securisation d'un système linux & monitoring
 
