@@ -1,0 +1,16 @@
+argos@192.168.56.10:
+	yum install nginx
+	sudo systemctl enable --now nginx
+	sudo firewall-cmd --zone=home --add-source=192.168.56.9
+	sudo firewall-cmd --zone=home --add-service=http
+	sudo firewall-cmd --zone=home --remove-service=mdns
+	sudo firewall-cmd --zone=home --remove-service=samba-client
+	sudo firewall-cmd --runtime-to-permanent
+
+root@192.168.56.9
+	yum insall nginx
+	systemctl enable --now nginx
+	firewall-cmd --zone=home --add-service=http
+	firewall-cmd --zone=public --add-masquerade
+	firewall-cmd --zone=public --add-forward-port=port=80:proto=tcp:toport=80:toaddr=192.168.56.10
+	firewall-cmd --runtime-to-permanent
