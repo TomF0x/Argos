@@ -1,7 +1,9 @@
 # Projet Argos
 
 ## Securisation d'un système linux & monitoring
-
+### OS :
+ Xubuntu
+ 
 ### Services :
 ```
  - serveur SSH  (:22)
