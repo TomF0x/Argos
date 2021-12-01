@@ -12,8 +12,8 @@ argos@192.168.56.10:
 	sudo firewall-cmd --runtime-to-permanent
 
 root@192.168.56.9
-	firewall-cmd --zone=public --add-masquerade
-	firewall-cmd --zone=public --add-forward-port=port=80:proto=tcp:toport=80:toaddr=192.168.56.10
+	sudo firewall-cmd --zone=public --add-masquerade
+	sudo firewall-cmd --zone=public --add-forward-port=port=80:proto=tcp:toport=80:toaddr=192.168.56.10
 	sudo firewall-cmd --zone=public --remove-service=cockpit
 	sudo firewall-cmd --zone=public --remove-service=dhcpv6-client
 	firewall-cmd --runtime-to-permanent
