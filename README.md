@@ -2,7 +2,8 @@
 
 ## Securisation d'un système linux & monitoring
 ### OS :
- Xubuntu
+ Rocky Linux
+
  
 ### Services :
 ```
