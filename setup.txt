@@ -9,11 +9,16 @@ argos@192.168.56.10:
 	sudo firewall-cmd --zone=home --remove-service=dhcpv6-client
 	sudo firewall-cmd --zone=public --remove-service=cockpit
 	sudo firewall-cmd --zone=public --remove-service=dhcpv6-client
+	sudo firewall-cmd --add-port=5000/tcp --permanent
 	sudo firewall-cmd --runtime-to-permanent
+	mkdir Flask
+        export FLASK_APP=webserver
+        sudo dnf install screen
+        screen -dmS Webserver flask run --host=0.0.0.0 --port=5000
 
 root@192.168.56.9
 	sudo firewall-cmd --zone=public --add-masquerade
-	sudo firewall-cmd --zone=public --add-forward-port=port=80:proto=tcp:toport=80:toaddr=192.168.56.10
 	sudo firewall-cmd --zone=public --remove-service=cockpit
 	sudo firewall-cmd --zone=public --remove-service=dhcpv6-client
+	sudo firewall-cmd --zone=public --remove-forward-port=port=80:proto=tcp:toport=80:toaddr=192.168.56.10
 	sudo firewall-cmd --runtime-to-permanent
