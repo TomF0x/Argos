@@ -20,5 +20,5 @@ root@192.168.56.9
 	sudo firewall-cmd --zone=public --add-masquerade
 	sudo firewall-cmd --zone=public --remove-service=cockpit
 	sudo firewall-cmd --zone=public --remove-service=dhcpv6-client
-	sudo firewall-cmd --zone=public --remove-forward-port=port=80:proto=tcp:toport=5000:toaddr=192.168.56.10
+	sudo firewall-cmd --zone=public --add-forward-port=port=80:proto=tcp:toport=3000:toaddr=192.168.56.10 --permanent
 	sudo firewall-cmd --runtime-to-permanent
